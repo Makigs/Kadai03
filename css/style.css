@@ -1,0 +1,191 @@
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    font-family: "Noto Sans JP";
+    margin: auto;
+}
+
+.header {
+    position: absolute;
+    top: 0; /* 上部から配置の基準位置を決める */
+    left: 0; /* 左から配置の基準位置を決める */
+    width: 100%; /* ヘッダーの横幅を指定する */
+    height: 35px; /* ヘッダーの高さを指定する */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-top: 5px;
+}
+
+.navi{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navititle{
+    padding: 50px 25px;
+    font-size: 20px;
+}
+
+.navititle a{
+    color: white;
+    text-decoration: none;
+    font-family: "Noto Sans JP";
+}
+
+
+.btn a{
+    text-decoration: none;
+    color: white;
+}
+
+@media only screen and (min-width: 1000px) {
+    body{
+    min-width: 1350px; /* 最小幅 */
+
+    background-image: url(../img/background.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    }
+
+    .main{
+        margin:10vw;
+    }
+
+    .main_position{
+        display: flex;
+    }
+    .main_pic{
+        margin: 0 0 0 auto;
+    }
+
+    .main_message{
+        font-family: 'Cormorant', serif;
+        color: white;
+        font-size: 80px;
+    }
+    .main_message_2{
+        font-family: 'Cormorant', serif;
+        font-size: 20px;
+        color: white;
+        line-height: 40px;
+    }
+
+}
+
+
+@media only screen and (max-width: 480px) {
+    body{
+    background-image: url(../img/background_sp.png);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    }
+    .main{
+        margin:10vw;
+    }
+
+    .main_message{
+        padding-top: 20px;
+        text-align: center;
+        font-family: 'Cormorant', serif;
+        color: white;
+        font-size: 30px;
+    }
+    .main_message_2{
+        text-align: center;
+        font-family: 'Cormorant', serif;
+        color: white;
+        font-size: 15px;
+        line-height: 40px;
+    }
+
+    .main_pic{
+        display: none;
+    }
+
+        
+    .breath-start{
+        position: absolute;
+        top: 70%;
+        left: 23%;
+    }
+
+    /* ボタン */
+    .btn{
+        background-color: #A6D8BE;
+        font-size: 10px;
+        color: white;
+        margin:5px 20px 5px 20px;
+        border-radius: 50px;
+    }
+
+
+    #btn-hover:hover{
+        box-shadow: 0px 0px 15px 2px #FFD966;
+        transform: scale(0.9);
+    }
+
+    /*== ボタン共通設定 */
+    .btn_anime{
+        /*アニメーションの起点とするためrelativeを指定*/
+        position: relative;
+        overflow: hidden;
+        /*ボタンの形状*/
+        text-decoration: none;
+        display: inline-block;
+        padding: 10px;
+        text-align: center;
+        outline: none;
+        /*アニメーションの指定*/   
+        transition: ease .2s;
+    }
+
+    /*ボタン内spanの形状*/
+    .btn_anime {
+        position: relative;
+        color:#FFD966;
+    }
+
+    .btn_anime span {
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn_anime:hover span{
+        color: black;
+    }
+
+    /*== 背景が流れる（斜め） */
+    .bg_anime::before {
+        content: '';
+        /*絶対配置で位置を指定*/
+        position: absolute;
+        top: 0;
+        left: -130%;
+        /*色や形状*/
+        background:#FFD966;
+        width:120%;
+        height: 100%;
+        transform: skewX(-25deg);
+    }
+
+    /*hoverした時のアニメーション*/
+    .bg_anime:hover::before {
+        animation: skewanime .5s forwards;/*アニメーションの名前と速度を定義*/
+
+    }
+
+    @keyframes skewanime {
+        100% {
+            left:-10%;/*画面の見えていない左から右へ移動する終了地点*/
+        }
+    }
+
+
+
+
+}
