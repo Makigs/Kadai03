@@ -7,17 +7,6 @@ body{
     margin: auto;
 }
 
-.header {
-    position: absolute;
-    top: 0; /* 上部から配置の基準位置を決める */
-    left: 0; /* 左から配置の基準位置を決める */
-    width: 100%; /* ヘッダーの横幅を指定する */
-    height: 35px; /* ヘッダーの高さを指定する */
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    padding-top: 5px;
-}
 
 .navi{
     display: flex;
@@ -41,6 +30,18 @@ body{
     color: white;
     padding: 5px 20px 5px 20px;
 }
+
+
+footer{
+    margin-top: 10px;
+    height: 30px;
+    background-color: #A6D8BE;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 @media only screen and (min-width: 1000px) {
     body{
@@ -81,7 +82,6 @@ body{
 
 @media only screen and (max-width: 480px) {
     body{
-    background-image: url(../img/background_sp.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100vw;
@@ -90,17 +90,19 @@ body{
     .main_wrap{
         text-align: center;
         padding-bottom: 100px;
+        height: 250px;
+        background-color: #A6D8BE;
     }
 
     .main{
-        margin:10vw 10vw 0 10vw;
+        margin:0 20px;
     }
 
     .main_message{
         padding-top: 20px;
         font-family: 'Cormorant', serif;
-        color: white;
         font-weight: bold;
+        color: white;
         font-size: 40px;
         padding-bottom: 20px;
     }
@@ -109,8 +111,6 @@ body{
         font-family: 'Cormorant', serif;
         color: white;
         font-size: 15px;
-        line-height: 40px;
-        padding-bottom: 20px;
     }
     .main_message_3{
         text-align: center;
@@ -121,9 +121,10 @@ body{
     }
 
     .main_pic{
-        display: none;
+        height: 130px;
     }
 
+    
 
     /* ボタン */
     .btn{
@@ -196,13 +197,76 @@ body{
         }
     }
 
-    .soon{
-        font-size: 5px;
-        padding: 5px;
-        color: #FFD966;
+    .sim_form {
+        position: relative;
+        width: 80%;
+        margin: 40px 3%;
+        display: flex;
+        justify-content: center;
     }
-
-
+    .sim_form input[type='text'] {
+        font: 15px/24px sans-serif;
+        box-sizing: border-box;
+        width: 100%;
+        letter-spacing: 1px;
+        padding-left: 4em;
+    }
+    .sim_form input[type='text']:focus {
+        outline: none;
+    }
+    .ef {
+        padding: 4px 0;
+        border: 0;
+        border-bottom: 1px solid #1b2538;
+        background-color: transparent;
+    }
+    .ef ~ .focus_line {
+        position: absolute;
+        z-index: 99;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+    }
+    .ef ~ .focus_line:before,
+    .ef ~ .focus_line:after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        content: '';
+        transition: 0.4s;
+        background-color: #FFC50D;
+    }
+    .ef ~ .focus_line:after {
+        right: 0;
+        left: auto;
+    }
+    .ef:focus ~ .focus_line:before,
+    .ef:focus ~ .focus_line:after,
+    .sim_form.ef ~ .focus_line:before,
+    .sim_form.ef ~ .focus_line:after {
+        width: 50%;
+        transition: 0.4s;
+    }
+    .ef ~ label {
+        position: absolute;
+        z-index: -1;
+        top: 4px;
+        left: 0;
+        width: 100%;
+        transition: 0.3s;
+        letter-spacing: 0.5px;
+        color: #aaaaaa;
+    }
+    .ef:focus ~ label,
+    .sim_form.ef ~ label {
+        font-size: 12px;
+        top: -16px;
+        transition: 0.3s;
+        color: #FFC50D;
+    }
 
 
 }
