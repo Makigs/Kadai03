@@ -32,6 +32,18 @@ body{
 }
 
 
+.teeth_kun {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #A6D8BE;
+}
+
+.main_pic{
+    height: 200px;
+}
+
+
 footer{
     height: 30px;
     background-color: #A6D8BE;
@@ -45,8 +57,6 @@ footer{
 @media only screen and (min-width: 761px) {
     body{
     min-width: 1350px; /* 最小幅 */
-
-    background-image: url(../img/background.png);
     background-position: top;
     background-repeat: no-repeat;
     background-size: 100vw;
@@ -58,9 +68,6 @@ footer{
 
     .main_position{
         display: flex;
-    }
-    .main_pic{
-        margin: 0 0 0 auto;
     }
 
     .main_message{
@@ -76,6 +83,7 @@ footer{
         line-height: 40px;
     }
 
+    
 }
 
 
@@ -88,7 +96,7 @@ footer{
 
     .main{
         text-align: center;
-        height: 350px;
+        height: 200px;
         background-color: #A6D8BE;
 	}
 
@@ -114,23 +122,21 @@ footer{
         line-height: 40px;
     }
 
-    .main_pic{
-        height: 130px;
-    }
 
 
 /* ここからシミュレーションフォーム */
-    .sim-section{
+    .res-section{
 		background-color: #F0F0F0;
 	}
 
-	.sim-section-body{
+	.res-section-body{
 		padding: 20px 20px;
 	}
 
-	.sim-h2{
+	.res-h2{
 		text-align: center;
 		font-size: 25px;
+        padding-top: 5px;
 		padding-bottom: 35px;
 		color: #295D42;
 		font-weight: bold;
@@ -145,6 +151,12 @@ footer{
 	.s-form-e-wrap {
 		padding-bottom: 20px;
 		width: 270px;
+		margin: 0 auto;
+	}
+
+    .s-form-e-wrap-res {
+		padding-bottom: 20px;
+		width: 400px;
 		margin: 0 auto;
 	}
 
@@ -209,104 +221,32 @@ footer{
 		height: 250px;
 	}
 	
-	.pic_preview{
-		max-width: 300px;
-		max-height: 250px;
-	}
-	
-
-	/*formの装飾  */
-	.s-form-e-input1:focus {
-		outline: 0;
-		box-shadow: 0 0 0 2px #FFC50D inset;
-	}
-	
-	.s-form-e-option:focus{
-		outline: 0;
-		box-shadow: 0 0 0 2px #FFC50D inset;
-	}
-
-	.submit_btn{
+    .ai_result{
 		display: flex;
 		justify-content: center;
-		padding-bottom: 20px;
+		align-items: center;
+		border: 1px dotted #333333;
+		border-radius: 5px;
+		width: 300px;
+		height: 250px;
+        margin-bottom: 50px;
 	}
-
-
-
-    /* ボタン 共通デザイン*/
-    .btn{
-        background-color: #459D6F;
-        font-size: 15px;
-        color: white;
-        margin:5px 20px 5px 20px;
-        border-radius: 50px;
+	
+	.pic_ai_result{
+		max-width: 300px;
+		max-height: 250px;
+    }
+    .result_name_era{
+        padding-bottom: 5px;
+        font-weight: bold;
     }
 
-
-    #btn-hover:hover{
-        box-shadow: 0px 0px 15px 2px #FFD966;
-        transform: scale(0.9);
+    .result_judge{
+        padding-bottom: 5px;
     }
 
-    /*== ボタン共通設定 */
-    .btn_anime{
-        /*アニメーションの起点とするためrelativeを指定*/
-        position: relative;
-        overflow: hidden;
-        /*ボタンの形状*/
-        text-decoration: none;
-        display: inline-block;
-        padding: 10px;
-        text-align: center;
-        outline: none;
-        /*アニメーションの指定*/   
-        transition: ease .2s;
+    .lf_judge{
+        padding-bottom: 5px;
     }
-
-    /*ボタン内spanの形状*/
-    .btn_anime {
-        position: relative;
-        color:#FFD966;
-    }
-
-    .btn_anime span {
-        position: relative;
-        z-index: 2;
-    }
-
-    .btn_anime:hover span{
-        color: black;
-    }
-
-    /*== 背景が流れる（斜め） */
-    .bg_anime::before {
-        content: '';
-        /*絶対配置で位置を指定*/
-        position: absolute;
-        top: 0;
-        left: -130%;
-        /*色や形状*/
-        background:#FFD966;
-        width:120%;
-        height: 100%;
-        transform: skewX(-25deg);
-    }
-
-    /*hoverした時のアニメーション*/
-    .bg_anime:hover::before {
-        animation: skewanime .5s forwards;/*アニメーションの名前と速度を定義*/
-
-    }
-
-    @keyframes skewanime {
-        100% {
-            left:-10%;/*画面の見えていない左から右へ移動する終了地点*/
-        }
-    }
-
-
-
-
 
 }
