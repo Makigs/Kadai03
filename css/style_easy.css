@@ -44,21 +44,19 @@ footer{
 
 @media only screen and (min-width: 761px) {
     body{
-    min-width: 1350px; /* 最小幅 */
-
-    background-image: url(../img/background.png);
+    min-width: 1000px; /* 最小幅 */
     background-position: top;
     background-repeat: no-repeat;
-    background-size: 100vw;
     }
+	.main_wrap{
+        background-color: #A6D8BE;
+	}
 
     .main{
-        margin:10vw;
-    }
+        padding: 30px;
+        text-align: center;
+	}
 
-    .main_position{
-        display: flex;
-    }
     .main_pic{
         margin: 0 0 0 auto;
     }
@@ -67,14 +65,231 @@ footer{
         font-family: 'Cormorant', serif;
         font-family: 'M PLUS Rounded 1c', sans-serif;
         color: white;
-        font-size: 80px;
+        font-size: 50px;
+        padding-bottom: 30px;
     }
+
     .main_message_2{
         font-family: 'Cormorant', serif;
-        font-size: 20px;
+        font-size: 25px;
         color: white;
         line-height: 40px;
+        text-align: center;
+        padding-bottom: 10px;
     }
+
+    .main_message_3{
+        font-family: 'Cormorant', serif;
+        color: white;
+        font-size: 25px;
+        line-height: 40px;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .main_pic{
+        height: 130px;
+    }
+
+	/* ここからシミュレーションフォーム */
+    .sim-section{
+		background-color: #F0F0F0;
+	}
+
+	.sim-section-body{
+		padding: 20px 20px;
+	}
+
+	.sim-h2{
+		text-align: center;
+		font-size: 25px;
+		padding-bottom: 35px;
+		color: #295D42;
+		font-weight: bold;
+
+	}
+
+	.s-form-e{
+		display: flex;
+		flex-direction: column;
+	}
+
+	.s-form-e-wrap {
+		padding-bottom: 20px;
+		width: 270px;
+		margin: 0 auto;
+	}
+
+	.s-req-o{
+		color:#9DC3E6;
+		padding-right: 10px;
+	}
+
+	.s-req-m{
+		color: #F4B183;
+		padding-right: 10px;
+	}
+
+	.s-form-e-item{
+		font-weight: bold;
+	}
+
+	.s-form-e-item_ttl1-a{
+		font-size: 5px;
+	}
+
+	.s-form-e-input1 {
+		height: 3em;
+		width: 230px;
+		padding: 0 16px;
+		border-radius: 4px;
+		border: none;
+		box-shadow: 0 0 0 1px #ccc inset;
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	.s-form-e-input2 {
+		height: 3em;
+		width: 280px;
+		padding: 5px 0;
+		border-radius: 4px;
+		border: none;
+
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+	}
+
+	.s-form-e-option {
+		height: 3em;
+		width: 260px;
+		padding: 0 16px;
+		border-radius: 4px;
+		border: none;
+		box-shadow: 0 0 0 1px #ccc inset;
+	}
+
+	.preview{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border: 1px dotted #333333;
+		border-radius: 5px;
+		width: 300px;
+		height: 250px;
+	}
+	
+	.pic_preview{
+		max-width: 300px;
+		max-height: 250px;
+	}
+	
+
+	/*formの装飾  */
+	.s-form-e-input1:focus {
+		outline: 0;
+		box-shadow: 0 0 0 2px #FFC50D inset;
+	}
+	
+	.s-form-e-option:focus{
+		outline: 0;
+		box-shadow: 0 0 0 2px #FFC50D inset;
+	}
+
+	.submit_btn{
+		display: flex;
+		justify-content: center;
+		padding-bottom: 20px;
+	}
+
+
+
+    /* ボタン 共通デザイン*/
+
+    .btn{
+        background-color: #459D6F;
+        font-size: 15px;
+        color: black;
+        margin:5px 20px 5px 20px;
+        border-radius: 50px;
+		padding: 10px;
+    }
+
+	
+    .btn_hearing{
+        background-color: #A6D8BE;
+        font-size: 15px;
+        color: white;
+        margin:5px 20px 5px 20px;
+        border-radius: 50px;
+		padding: 10px 30px;
+    }
+
+    #btn-hover:hover{
+        box-shadow: 0px 0px 15px 2px #FFD966;
+        transform: scale(0.9);
+    }
+
+    /*== ボタン共通設定 */
+    .btn_anime{
+        /*アニメーションの起点とするためrelativeを指定*/
+        position: relative;
+        overflow: hidden;
+        /*ボタンの形状*/
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        outline: none;
+        /*アニメーションの指定*/   
+        transition: ease .2s;
+    }
+
+    /*ボタン内spanの形状*/
+    .btn_anime {
+        position: relative;
+        color:#FFD966;
+    }
+
+    .btn_anime span {
+        position: relative;
+        z-index: 2;
+    }
+
+    .btn_anime:hover span{
+        color: black;
+    }
+
+    /*== 背景が流れる（斜め） */
+    .bg_anime::before {
+        content: '';
+        /*絶対配置で位置を指定*/
+        position: absolute;
+        top: 0;
+        left: -130%;
+        /*色や形状*/
+        background:#FFD966;
+        width:120%;
+        height: 100%;
+        transform: skewX(-25deg);
+    }
+
+    /*hoverした時のアニメーション*/
+    .bg_anime:hover::before {
+        animation: skewanime .5s forwards;/*アニメーションの名前と速度を定義*/
+
+    }
+
+    @keyframes skewanime {
+        100% {
+            left:-10%;/*画面の見えていない左から右へ移動する終了地点*/
+        }
+    }
+
+	.disable{
+		display: none;
+	}
 
 }
 
@@ -95,6 +310,7 @@ footer{
     .main_message{
         padding-top: 20px;
         font-family: 'Cormorant', serif;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
         font-weight: bold;
         color: white;
         font-size: 40px;
@@ -235,14 +451,25 @@ footer{
 
 
     /* ボタン 共通デザイン*/
+
     .btn{
         background-color: #459D6F;
+        font-size: 15px;
+        color: black;
+        margin:5px 20px 5px 20px;
+        border-radius: 50px;
+		padding: 10px;
+    }
+
+	
+    .btn_hearing{
+        background-color: #A6D8BE;
         font-size: 15px;
         color: white;
         margin:5px 20px 5px 20px;
         border-radius: 50px;
+		padding: 10px 30px;
     }
-
 
     #btn-hover:hover{
         box-shadow: 0px 0px 15px 2px #FFD966;
@@ -257,7 +484,6 @@ footer{
         /*ボタンの形状*/
         text-decoration: none;
         display: inline-block;
-        padding: 10px;
         text-align: center;
         outline: none;
         /*アニメーションの指定*/   
@@ -305,7 +531,9 @@ footer{
         }
     }
 
-
+	.disable{
+		display: none;
+	}
 
 
 

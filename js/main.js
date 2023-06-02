@@ -2,7 +2,7 @@
 // Local storageのvalueと一致するoptionを反映させる
 $(window).on('load', function() {
   if (document.URL.match(/easy_sim.html/)) {
-    for (let i = 1; i <= localStorage.length; i++) {
+    for (let i = 1; i <= 6; i++) {
       const option = "selectedOption" + i;
       const value = localStorage.getItem(option);
 
@@ -11,6 +11,8 @@ $(window).on('load', function() {
 				if (value !== null && value !== "" && value !== "notanswer" && value !== "undefined") {
 					const optionText = $(".option" + i + " option[value='" + value + "']").text();
 					$(".option" + i).val(value).find("option[value='" + value + "']").text(optionText);
+					$(".btn").addClass('disable');
+					$(".btn_hearing").removeClass('disable');
 				}
 			}else if(i == 6){
 				let dataUrl = localStorage.getItem('selectedOption6');
@@ -26,6 +28,7 @@ $(window).on('load', function() {
 					$(".preview_text").css("display","none");
 				}
 			}
+		}
     	// }
 			// else if(i == 6){
 			// 	if (value !== null && value !== "" && value !== "notanswer") {
@@ -38,10 +41,9 @@ $(window).on('load', function() {
 			// 			$('.option6').val(storedFileName);
 			// 		}
 				// }
-
-		}
-  }
+	};
 });
+
 
 
 // Option2(年代)の関数
@@ -79,6 +81,30 @@ $(document).ready(function(){
 					console.log(localStorage)
 			}
 	}, 5000);  // 5000ミリ秒 = 5秒
+});
+
+// 必須の項目が選択されていないとボタンを押せない
+$(".s-form-e-option").change(function() {
+	let flag = false;
+	$(".s-form-e-option").each(function() {
+		let selected = $(this).find("option:selected").val();
+		console.log(selected, "選択個数");
+
+		if (selected === "notanswer") {
+			flag = true;
+			return false;
+		}
+	});
+	
+	if (flag) {
+		if (!$(".btn").hasClass('disable')) {
+			$(".btn").addClass('disable');
+			$(".btn_hearing").removeClass('disable');
+		}
+	} else {
+		$(".btn_hearing").addClass('disable');
+		$(".btn").removeClass('disable');
+	}
 });
 
 
@@ -128,7 +154,7 @@ $(window).on('load', function() {
 			$('.ai_result').append(img);
 		}
 
-
+		// 診断結果のIF文
 		let op1_value = window.localStorage.getItem('selectedOption1');
 		let op2_era = window.localStorage.getItem('selectedOption2');
 		let op3_value = window.localStorage.getItem('selectedOption3');
